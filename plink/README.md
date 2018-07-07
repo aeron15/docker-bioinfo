@@ -7,3 +7,4 @@ Run container with "run_container.sh"
 - Mount volumes
 - Define username
 - Check AWS container run
+- Test docker hub automated build
