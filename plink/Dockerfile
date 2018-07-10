@@ -1,16 +1,17 @@
-# From https://github.com/GELOG/plink/blob/master/plink-2.0-bin/docker/Dockerfile
-# Pull base image
-FROM ubuntu:14.04.2
-MAINTAINER "Renan Escalante <renan.escalante.chong@gmail.com>"
+FROM rocker/verse:3.5.0
 
-# Installation instructions: https://www.cog-genomics.org/plink2
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+        apt-get install -y python python3 python-dev python-pip python-virtualenv && \
+        rm -rf /var/lib/apt/lists/*
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
+        perl
 
 # Environment variables
 # 150314 == plink 1.9 beta 3 ???
 ENV PLINK_VERSION       180612
 ENV PLINK_HOME          /usr/local/plink
 ENV PATH                $PLINK_HOME:$PATH
-
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y unzip wget && \
     wget https://www.cog-genomics.org/static/bin/plink$PLINK_VERSION/plink_linux_x86_64.zip && \
@@ -19,7 +20,3 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y unzip wget && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y unzip wget && \
     rm -rf /var/lib/apt/lists/*
 
-
-
-# Set the default action to print plink's options 
-CMD ["plink"]
