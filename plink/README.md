@@ -5,8 +5,8 @@ Run container with "run_container.sh"
 
 ## To do
 - Check AWS container run
-- Test docker hub automated build
 
+## Add snpflp for Consuelo
 
 
 
