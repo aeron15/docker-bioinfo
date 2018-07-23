@@ -1,5 +1,4 @@
 FROM rocker/verse:3.5.0
-MAINTAINER renan.escalante.chong@gmail.com
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 	apt-get install -y python python3 python-dev python-pip python-virtualenv && \
