@@ -9,7 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 
 # Environment variables
 # 150314 == plink 1.9 beta 3 ???
-ENV PLINK_VERSION       180612
+ENV PLINK_VERSION       180717
 ENV PLINK_HOME          /usr/local/plink
 ENV PATH                $PLINK_HOME:$PATH
 
