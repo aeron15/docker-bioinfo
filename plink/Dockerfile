@@ -1,11 +1,11 @@
 FROM rocker/verse:3.5.0
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-        apt-get install -y python python3 python-dev python-pip python-virtualenv && \
-        rm -rf /var/lib/apt/lists/*
+	apt-get install -y python python3 python-dev python-pip python-virtualenv && \
+	rm -rf /var/lib/apt/lists/*
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-        perl
+	perl
 
 # Environment variables
 # 150314 == plink 1.9 beta 3 ???
@@ -19,4 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y unzip wget && \
     rm plink_linux_x86_64.zip && \
     DEBIAN_FRONTEND=noninteractive apt-get autoremove -y unzip wget && \
     rm -rf /var/lib/apt/lists/*
+
+ADD requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
